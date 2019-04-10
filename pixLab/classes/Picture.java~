@@ -178,10 +178,10 @@ public class Picture extends SimplePicture
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
+    //int count = 0;
     int mirrorPoint = 276;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
-    int count = 0;
     Pixel[][] pixels = this.getPixels2D();
     
     // loop through the rows
@@ -190,13 +190,54 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
-        
+        //count++;
         leftPixel = pixels[row][col];      
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
+    //System.out.print("" + count);
+  }
+  
+    public void mirrorArms()
+  {
+    //int count = 0;
+    int mirrorPoint = 200;
+    int mirrorPoint2 = ;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int col = 239; col < 296; col++)
+    
+    {
+      // loop from 13 to just before the mirror point
+      for (int row = 168; row < mirrorPoint; row++)
+      {
+        //count++;
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[mirrorPoint - row + mirrorPoint][col];                       
+                         
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+    
+    for (int col = 239; col < 296; col++)
+    
+    {
+      // loop from 13 to just before the mirror point
+      for (int row = 168; row < mirrorPoint; row++)
+      {
+        //count++;
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[mirrorPoint - row + mirrorPoint][col];                       
+                         
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+    //System.out.print("" + count);
   }
   
   /** copy from the passed fromPic to the
@@ -274,6 +315,56 @@ public class Picture extends SimplePicture
     }
   }
   
+   public void mirrorVerticalRightToLeft()
+  { 
+   Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    { 
+      for (int col = 0; col < width / 2; col++)
+      { 
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      } 
+    } 
+ } 
+
+   public void mirrorHorizontal()
+  { 
+   Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int width = pixels.length;
+    for (int col = 0; col < pixels[0].length; col++)
+    { 
+      for (int row = 0; row < width / 2; row++)
+      { 
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[width - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      } 
+    } 
+ } 
+  
+  public void mirrorHorizontalBotToTop()
+  { 
+   Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int width = pixels.length;
+    for (int col = 0; col < pixels[0].length; col++)
+    { 
+      for (int row = 0; row < width / 2; row++)
+      { 
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[width - 1 - row][col];
+        topPixel.setColor(bottomPixel.getColor());
+      } 
+    } 
+ }   
   
   /* Main method for testing - each class in Java can have a main 
    * method 
