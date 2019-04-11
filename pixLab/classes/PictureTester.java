@@ -29,9 +29,9 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testCollage();
+    //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -98,6 +98,14 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testMirrorDiagonal()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
+  }
+  
   public static void testMirrorHorizontalBotToTop()
   {
     Picture beach = new Picture("beach.jpg");
@@ -147,6 +155,14 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
+  
+ /* public static void testCopy()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.explore();
+    canvas.copy();
+    canvas.explore();
+  } */
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
